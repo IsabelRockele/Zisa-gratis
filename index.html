@@ -381,6 +381,25 @@
     }
   })();
 </script>
+<script>
+  // Wacht een fractie van een seconde zodat Google Analytics de klik kan verzenden
+  document.querySelectorAll('.btn-start').forEach(btn => {
+    btn.addEventListener('click', e => {
+      e.preventDefault(); // tijdelijk tegenhouden van het openen
+      const url = btn.getAttribute('href');
+      const label = url.includes('galgje') ? 'galgje' : 'getalinzicht';
+
+      gtag('event', 'klik_' + label, {
+        event_category: 'promo',
+        event_label: label,
+        event_callback: () => { window.location.href = url; } // daarna pas openen
+      });
+
+      // voor de zekerheid, als het event_callback niet afgaat
+      setTimeout(() => window.location.href = url, 800);
+    });
+  });
+</script>
 
 </body>
 </html>
