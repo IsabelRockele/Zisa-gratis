@@ -202,6 +202,27 @@
       color: var(--accent-hover);
     }
 
+    /* Verborgen-sectie na de einddatum */
+    .expired-box {
+      display: none;
+      background-color: #fff7ed;
+      border: 1px solid #fdba74;
+      border-radius: .75rem;
+      padding: 1rem 1rem;
+      font-size: .95rem;
+      line-height: 1.5;
+      color: var(--text-main);
+      margin-top: 1rem;
+    }
+
+    .expired-title {
+      font-weight: 600;
+      margin-bottom: .5rem;
+      color: #9a3412;
+      font-size: 1rem;
+      line-height: 1.4;
+    }
+
     footer {
       max-width: 720px;
       margin: 2rem auto 3rem auto;
@@ -244,19 +265,29 @@
 
     <h1>Probeer twee spellen gratis</h1>
 
-    <p class="subtext">
+    <p class="subtext" id="intro-text">
       Deze twee tools mag u tijdelijk volledig gratis gebruiken in de klas.
       Geen login nodig, geen installatie.
       Dit aanbod loopt tot en met <span class="deadline">30 november</span>.
     </p>
 
-    <div class="notice-box">
+    <div class="notice-box" id="notice-active">
       Na 30 november blijven deze spellen beschikbaar in de PRO-versie van
       Zisa’s Spelletjesmaker. U kunt dan nog steeds verderwerken met dezelfde
       layout en dezelfde oefeningen, via een jaarlicentie of een maandabonnement.
     </div>
 
-    <div class="games-grid">
+    <div class="expired-box" id="notice-expired">
+      <div class="expired-title">De gratis periode is afgelopen</div>
+      De gratis toegang liep af op 30 november.
+      Vanaf nu zijn deze tools enkel beschikbaar in de PRO-versie van
+      Zisa’s Spelletjesmaker.
+      <br><br>
+      Wilt u verder blijven werken met deze spellen (inclusief alle opties)?
+      Gelieve ons PRO-aanbod te bekijken.
+    </div>
+
+    <div class="games-grid" id="games-grid">
 
       <!-- GALGJE -->
       <article class="game-tile">
@@ -302,6 +333,37 @@
     na 30 november. © Zisa’s Spelletjesmaker
   </div>
 </footer>
+
+<script>
+  (function () {
+    // Einddatum gratis periode (inclusief 30 november)
+    // Jaar, maand-1 (0 = jan), dag
+    const eindeGratis = new Date(2025, 10, 30, 23, 59, 59);
+    const nu = new Date();
+
+    const grid = document.getElementById('games-grid');
+    const noticeActive = document.getElementById('notice-active');
+    const noticeExpired = document.getElementById('notice-expired');
+    const introText = document.getElementById('intro-text');
+
+    if (nu > eindeGratis) {
+      // Gratis periode voorbij:
+      // - Verberg de spellen
+      // - Toon de "afgelopen"-boodschap
+      if (grid) grid.style.display = 'none';
+      if (noticeActive) noticeActive.style.display = 'none';
+      if (introText) {
+        introText.textContent =
+          'De gratis proefperiode is afgelopen. Deze tools maken vanaf december deel uit van de PRO-versie van Zisa’s Spelletjesmaker.';
+      }
+      if (noticeExpired) noticeExpired.style.display = 'block';
+    } else {
+      // Gratis periode loopt nog:
+      // - Toon alles normaal
+      if (noticeExpired) noticeExpired.style.display = 'none';
+    }
+  })();
+</script>
 
 </body>
 </html>
