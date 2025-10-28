@@ -1,5 +1,14 @@
 <!DOCTYPE html>
 <html lang="nl">
+    <!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXX"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-3LTQSXZ5JL');
+</script>
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -300,7 +309,11 @@
           </div>
         </div>
 
-        <a class="btn-start" href="galgje.html">Start Galgje</a>
+        <a class="btn-start"
+   href="galgje.html"
+   onclick="gtag('event','klik_galgje',{event_category:'promo',event_label:'galgje'});">
+   Start Galgje
+</a>
         <a class="btn-video" href="https://www.youtube.com/watch?v=b6IaL9GQe04" target="_blank">📺 Bekijk uitlegfilmpje</a>
       </article>
 
@@ -315,7 +328,11 @@
           </div>
         </div>
 
-        <a class="btn-start" href="getalinzicht.html">Maak werkblad</a>
+       <a class="btn-start"
+   href="getalinzicht.html"
+   onclick="gtag('event','klik_getalinzicht',{event_category:'promo',event_label:'getalinzicht'});">
+   Maak werkblad
+</a>
         <a class="btn-video" href="https://www.youtube.com/watch?v=e_3Ug0wIN9w&t=2s" target="_blank">📺 Bekijk uitlegfilmpje</a>
       </article>
 
