@@ -1,0 +1,307 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="google" content="notranslate">
+  <title>Gratis proef - Zisa’s Spelletjesmaker</title>
+
+  <style>
+    :root {
+      --bg-page: #f8fafc;
+      --bg-card: #ffffff;
+      --text-main: #1e293b;
+      --text-soft: #475569;
+      --accent: #0ea5e9;
+      --accent-hover: #0284c7;
+      --border-card: #e2e8f0;
+      --radius-lg: 1rem;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+      background-color: var(--bg-page);
+      color: var(--text-main);
+      line-height: 1.5;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    header {
+      background-color: var(--bg-card);
+      border-bottom: 1px solid var(--border-card);
+      padding: 1rem 1.25rem;
+    }
+
+    .header-inner {
+      max-width: 720px;
+      margin: 0 auto;
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+    }
+
+    .zisa-logo {
+      width: 70px;
+      height: auto;
+      flex-shrink: 0;
+    }
+
+    .brand-block {
+      display: flex;
+      flex-direction: column;
+      gap: .4rem;
+    }
+
+    .brand {
+      font-size: 1rem;
+      font-weight: 600;
+      color: var(--text-main);
+    }
+
+    .periode-tag {
+      font-size: .875rem;
+      font-weight: 500;
+      color: #fff;
+      background-color: var(--accent);
+      border-radius: 999px;
+      padding: .25rem .6rem;
+      display: inline-block;
+      line-height: 1.2;
+      width: fit-content;
+    }
+
+    main {
+      max-width: 720px;
+      margin: 2rem auto 4rem auto;
+      padding: 0 1.25rem;
+    }
+
+    .card {
+      background-color: var(--bg-card);
+      border: 1px solid var(--border-card);
+      border-radius: var(--radius-lg);
+      padding: 1.5rem;
+      box-shadow: 0 20px 40px rgba(15, 23, 42, 0.05);
+    }
+
+    h1 {
+      margin: 0 0 .5rem 0;
+      font-size: 1.25rem;
+      line-height: 1.3;
+      font-weight: 600;
+      color: var(--text-main);
+    }
+
+    .subtext {
+      margin: 0 0 1.25rem 0;
+      font-size: .95rem;
+      color: var(--text-soft);
+      line-height: 1.5;
+    }
+
+    .deadline {
+      font-weight: 600;
+      color: var(--text-main);
+    }
+
+    .notice-box {
+      background-color: #f0f9ff;
+      border: 1px solid #bae6fd;
+      border-radius: .75rem;
+      padding: .75rem 1rem;
+      font-size: .9rem;
+      color: var(--text-main);
+      line-height: 1.4;
+      margin-bottom: 1.5rem;
+    }
+
+    .games-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 1rem;
+    }
+
+    @media (min-width: 600px) {
+      .games-grid {
+        grid-template-columns: 1fr 1fr;
+      }
+    }
+
+    .game-tile {
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      border: 1px solid var(--border-card);
+      border-radius: .75rem;
+      background-color: #fff;
+      padding: 1rem 1rem 1.25rem 1rem;
+      min-height: 200px;
+    }
+
+    .game-head {
+      display: flex;
+      flex-direction: column;
+      gap: .5rem;
+      margin-bottom: 1rem;
+    }
+
+    .game-title {
+      font-size: 1rem;
+      font-weight: 600;
+      color: var(--text-main);
+      line-height: 1.3;
+    }
+
+    .game-desc {
+      font-size: .9rem;
+      color: var(--text-soft);
+      line-height: 1.4;
+    }
+
+    .btn-start {
+      appearance: none;
+      display: inline-block;
+      text-align: center;
+      font-size: .95rem;
+      font-weight: 600;
+      line-height: 1.2;
+      color: #fff;
+      background-color: var(--accent);
+      border-radius: .6rem;
+      border: none;
+      padding: .75rem 1rem;
+      text-decoration: none;
+      cursor: pointer;
+      transition: background-color .15s;
+      width: 100%;
+    }
+
+    .btn-start:hover,
+    .btn-start:focus {
+      background-color: var(--accent-hover);
+    }
+
+    .btn-video {
+      display: inline-block;
+      margin-top: 0.5rem;
+      font-size: 0.9rem;
+      color: var(--accent);
+      text-align: center;
+      text-decoration: none;
+      font-weight: 500;
+    }
+
+    .btn-video:hover {
+      text-decoration: underline;
+      color: var(--accent-hover);
+    }
+
+    footer {
+      max-width: 720px;
+      margin: 2rem auto 3rem auto;
+      padding: 0 1.25rem;
+      font-size: .75rem;
+      line-height: 1.4;
+      color: var(--text-soft);
+      text-align: center;
+    }
+
+    footer .small-note {
+      margin-top: .5rem;
+      font-size: .75rem;
+      color: var(--text-soft);
+    }
+
+    .legal {
+      font-size: .7rem;
+      color: #94a3b8;
+      margin-top: 1rem;
+      line-height: 1.4;
+    }
+  </style>
+</head>
+
+<body>
+
+<header>
+  <div class="header-inner">
+    <img src="index_afbeeldingen/zisa.png" alt="Zisa logo" class="zisa-logo">
+    <div class="brand-block">
+      <div class="brand">Zisa’s Spelletjesmaker • Proefperiode</div>
+      <div class="periode-tag">Gratis tot en met 30 november</div>
+    </div>
+  </div>
+</header>
+
+<main>
+  <section class="card">
+
+    <h1>Probeer twee spellen gratis</h1>
+
+    <p class="subtext">
+      Deze twee tools mag u tijdelijk volledig gratis gebruiken in de klas.
+      Geen login nodig, geen installatie.
+      Dit aanbod loopt tot en met <span class="deadline">30 november</span>.
+    </p>
+
+    <div class="notice-box">
+      Na 30 november blijven deze spellen beschikbaar in de PRO-versie van
+      Zisa’s Spelletjesmaker. U kunt dan nog steeds verderwerken met dezelfde
+      layout en dezelfde oefeningen, via een jaarlicentie of een maandabonnement.
+    </div>
+
+    <div class="games-grid">
+
+      <!-- GALGJE -->
+      <article class="game-tile">
+        <div class="game-head">
+          <div class="game-title">Galgje (taal / spelling)</div>
+          <div class="game-desc">
+            Laat uw leerlingen letters raden en woorden oefenen.
+            U kunt eigen woordjes of zinnen ingeven.
+            Ideaal op het bord als tussendoortje of starter van een les.
+          </div>
+        </div>
+
+        <a class="btn-start" href="galgje.html">Start Galgje</a>
+        <a class="btn-video" href="https://www.youtube.com/watch?v=b6IaL9GQe04" target="_blank">📺 Bekijk uitlegfilmpje</a>
+      </article>
+
+      <!-- GETALINZICHT -->
+      <article class="game-tile">
+        <div class="game-head">
+          <div class="game-title">Werkbladen Getalinzicht (tot 100)</div>
+          <div class="game-desc">
+            Maak uw eigen rekensetjes tot 20 of tot 100.
+            Getallenlijn, honderdveld, getallen vergelijken, MAB-materiaal,... U kiest.
+            U krijgt een printklaar werkblad of bundel.
+          </div>
+        </div>
+
+        <a class="btn-start" href="getalinzicht.html">Maak werkblad</a>
+        <a class="btn-video" href="https://www.youtube.com/watch?v=e_3Ug0wIN9w&t=2s" target="_blank">📺 Bekijk uitlegfilmpje</a>
+      </article>
+
+    </div>
+
+  </section>
+</main>
+
+<footer>
+  <div class="small-note">
+    Werkt iets niet zoals verwacht? Laat het gerust weten.
+  </div>
+  <div class="legal">
+    Deze gratis toegang is tijdelijk en wordt automatisch afgesloten
+    na 30 november. © Zisa’s Spelletjesmaker
+  </div>
+</footer>
+
+</body>
+</html>
